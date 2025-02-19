@@ -1,6 +1,6 @@
 module temporal-benchmark
 
-go 1.21.5
+go 1.23
 
 require go.temporal.io/sdk v1.32.1
 
@@ -13,6 +13,7 @@ require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.22.0 // indirect
 	github.com/nexus-rpc/sdk-go v0.1.0 // indirect
+	github.com/oklog/ulid/v2 v2.1.0
 	github.com/pborman/uuid v1.2.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/robfig/cron v1.2.0 // indirect

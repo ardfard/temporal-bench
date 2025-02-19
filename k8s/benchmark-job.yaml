@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: temporal-benchmark
+  namespace: benchmark
+spec:
+  completions: 1
+  parallelism: 1
+  backoffLimit: 3
+  template:
+    spec:
+      containers:
+        - name: benchmark
+          image: ardfard/temporal-benchmark:latest
+          args:
+            - "--temporal-address=temporal-production-frontend.app:7233"
+            - "--namespace=benchmark"
+            - "--workers=10"
+            - "--iterations=100"
+            - "--num-workflows-per-iter=100"
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "256Mi"
+            limits:
+              cpu: "2"
+              memory: "1Gi"
+      restartPolicy: Never
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: benchmark
